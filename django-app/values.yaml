@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: yourdockerhubusername/yourappname
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: django.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+env:
+  DJANGO_SECRET_KEY: "your-secret-key"
+  DEBUG: "True"
+
+resources: {}

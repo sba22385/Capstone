@@ -3,6 +3,10 @@
 import os
 import sys
 
+mkdir -p .github/workflows
+touch .github/workflows/deploy.yml
+
+
 
 def main():
     """Run administrative tasks."""
@@ -20,3 +24,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+helm create django-app
+
+
